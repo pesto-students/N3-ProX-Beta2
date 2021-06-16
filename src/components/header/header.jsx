@@ -9,47 +9,51 @@ import { faShoppingBag, faUserTie } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   return (
     <header className="header">
-      <nav>
-        <Link to="/">
-          <img alt="" className="header__logo" src={logo} />
-        </Link>
-      </nav>
-
-      <menu>
-        <nav className="menu_items">
+      <section className="header_section_wrapper">
+        <nav>
           <Link to="/">
-            <span className="header__optionLine">MEN</span>
-          </Link>
-          <Link to="/">
-            <span className="header__optionLine">WOMEN</span>
-          </Link>
-          <Link to="/">
-            <span className="header__optionLine">KIDS</span>
+            <img alt="" className="header__logo" src={logo} />
           </Link>
         </nav>
-      </menu>
 
-      <SearchBar />
+        <menu>
+          <nav className="menu_items">
+            <Link to="/">
+              <span className="header__optionLine">MEN</span>
+            </Link>
+            <Link to="/">
+              <span className="header__optionLine">WOMEN</span>
+            </Link>
+            <Link to="/">
+              <span className="header__optionLine">KIDS</span>
+            </Link>
+          </nav>
+        </menu>
+      </section>
 
-      <nav className="header__nav">
-        <Link to={"/"}>
-          <div className="header__option">
-            <span>
-              <FontAwesomeIcon icon={faUserTie} size="2x" />
-            </span>
-            <span className="header__optionLine">Sign-In</span>
-          </div>
-        </Link>
-        <Link to="/">
-          <div className="header__option">
-            <span>
-              <FontAwesomeIcon icon={faShoppingBag} size="2x" />
-            </span>
-            <span className="header__basketCount">1</span>
-            <span className="header__optionLine">Cart</span>
-          </div>
-        </Link>
-      </nav>
+      <section className="header_section_wrapper">
+        <SearchBar />
+
+        <nav className="header__nav">
+          <Link to={"/"}>
+            <div className="header__option">
+              <span>
+                <FontAwesomeIcon icon={faUserTie} size="2x" />
+              </span>
+              <span className="header__optionLine">Sign-In</span>
+            </div>
+          </Link>
+          <Link to="/">
+            <div className="header__option">
+              <span>
+                <FontAwesomeIcon icon={faShoppingBag} size="2x" />
+              </span>
+              <span className="header__basketCount">1</span>
+              <span className="header__optionLine">Cart</span>
+            </div>
+          </Link>
+        </nav>
+      </section>
     </header>
   );
 }

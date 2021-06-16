@@ -5,7 +5,7 @@ import "./search-bar.scss";
 
 function SearchBar() {
   return (
-    <section className="wrapper">
+    <div className="wrapper">
       <input
         className="search"
         id="search"
@@ -19,7 +19,7 @@ function SearchBar() {
       <span className="searchIcon" onClick={() => true}>
         <FontAwesomeIcon icon={faSearch} />
       </span>
-    </section>
+    </div>
   );
 }
 
