@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./styles/search-bar.scss";
+import "./search-bar.scss";
 
 function SearchBar() {
   return (
@@ -10,7 +10,7 @@ function SearchBar() {
         className="search"
         id="search"
         type="search"
-        placeholder="Search Products"
+        placeholder="Search for products"
         onChange={() => true}
         onFocus={() => true}
         onBlur={() => true}

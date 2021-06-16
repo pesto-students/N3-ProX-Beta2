@@ -1,7 +1,12 @@
 import React from "react";
+import Slider from "../../components/carousel/Slider";
 
 function Home() {
-  return <section>Home</section>;
+  return (
+    <section>
+      <Slider />
+    </section>
+  );
 }
 
 export default Home;
