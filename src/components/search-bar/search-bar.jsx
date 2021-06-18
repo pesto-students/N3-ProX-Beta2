@@ -1,16 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./styles/search-bar.scss";
+import "./search-bar.scss";
 
 function SearchBar() {
   return (
-    <section className="wrapper">
+    <div className="wrapper">
       <input
         className="search"
         id="search"
         type="search"
-        placeholder="Search Products"
+        placeholder="Search for products"
         onChange={() => true}
         onFocus={() => true}
         onBlur={() => true}
@@ -19,7 +19,7 @@ function SearchBar() {
       <span className="searchIcon" onClick={() => true}>
         <FontAwesomeIcon icon={faSearch} />
       </span>
-    </section>
+    </div>
   );
 }
 

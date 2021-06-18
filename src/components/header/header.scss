@@ -6,6 +6,7 @@
   position: sticky;
   z-index: 100;
   top: 0;
+  justify-content: space-between;
 }
 
 .header__logo {
@@ -56,4 +57,12 @@
   font-weight: bolder;
   font-family: "Poppins", sans-serif;
   text-align: center;
+}
+
+.menu_items {
+  display: flex;
+}
+
+.menu_items a {
+  text-decoration: none;
 }
