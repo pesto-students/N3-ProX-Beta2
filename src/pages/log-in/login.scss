@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: linear-gradient(to bottom, #f4f4f4, #f1f1f1);
+  height: 100vh;
+  display: grid;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f4f4f4;
+  width: 100%;
+  max-width: 400px;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: -40px -40px 80px rgb(255, 255, 255), 40px 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  font-size: 40px;
+  color: #565656;
+  align-items: center;
+}
+
+.card-subtitle {
+  color: #565656;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.card-input-container {
+  position: relative;
+  margin: 0.5rem 0 2rem;
+  width: 100%;
+}
+
+.card-form label {
+  color: #b6b6b6;
+}
+
+.card-input-container input::placeholder {
+  color: #b6b6b6;
+}
+
+.card-input-container input,
+.card-button {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+}
+
+.card-input-container input {
+  padding: 1em 2em 1em 4em;
+  font-size: 14px;
+  color: #b6b6b6;
+  background: #f4f4f4;
+  box-shadow: -10px -10px 20px rgb(255, 255, 255), 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-input-container input:focus {
+  box-shadow: inset -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-button {
+  background: #565656;
+  padding: 1.5rem;
+  color: #f4f4f4;
+  cursor: pointer;
+  box-shadow: -10px -10px 20px rgb(255, 255, 255), 10px 10px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+}
+
+.card-button:focus,
+.card-button:hover {
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.4), inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-forgot-password {
+  text-align: center;
+  font-size: 12px;
+  color: #b6b6b6;
+}
+
+.card-forgot-password a {
+  color: #565656;
+}
+.card-forgot-password a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-input-container::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  left: 1.3rem;
+  top: 0.8rem;
+  font-size: 20px;
+  color: #b6b6b6;
+}
+
+.card-input-container.username::after {
+  content: "\f007";
+}
+
+.card-input-container.password::after {
+  content: "\f023";
+}
+
+.cardOr {
+  text-align: center;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+  color: #565656;
+}
+
+.login-with-google-btn {
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -10px -10px 20px white, 10px 10px 20px rgb(0 0 0 / 40%);
+
+  color: #f4f4f4;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: #565656;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+
+  &:hover {
+    box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.4), inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 0 3px #c8dafc;
+  }
+
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+    cursor: not-allowed;
+  }
+}

@@ -46,7 +46,7 @@ function Header() {
             </div>
 
             <nav className="header__nav">
-              <Link to={"/"}>
+              <Link to={"/log-in"}>
                 <div className="header__option">
                   <span>
                     <FontAwesomeIcon icon={faUserTie} size="lg" />
