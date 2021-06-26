@@ -4,13 +4,12 @@
 }
 
 :root {
-  --heights: 50vh;
-  --widths: 100%;
+  display: grid;
 }
 
 .slider-container {
-  height: var(--heights);
-  width: var(--widths);
+  height: 65vh;
+  width: 100%;
   position: relative;
   margin: auto;
   overflow: hidden;
@@ -26,8 +25,8 @@
 }
 
 .slide.active {
-  height: var(--heights);
-  width: var(--widths);
+  height: 50vh;
+  width: 100%;
   opacity: 1;
   transition-duration: 1s;
 }
@@ -60,7 +59,7 @@
 .prev,
 .next {
   cursor: pointer;
-  z-index: 100;
+  z-index: 99;
   position: absolute;
   top: 50%;
   width: auto;
