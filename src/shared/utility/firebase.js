@@ -1,4 +1,5 @@
 import firebase from "firebase";
+// only for development purpure.
 
 var firebaseConfig = {
   apiKey: "AIzaSyCVyO2JkjrmH5TcCneJK3TnhJBcavu0LaY",
