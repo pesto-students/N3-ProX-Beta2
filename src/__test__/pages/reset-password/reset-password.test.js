@@ -1,5 +1,5 @@
 import React from "react";
-import SignUp from "../../../pages/sign-up/sign-up";
+import ResetPassword from "../../../pages/reset-password/reset-password";
 import ReactDOM from "react-dom";
 import { render, act, cleanup } from "@testing-library/react";
 import { Switch, BrowserRouter } from "react-router-dom";
@@ -8,25 +8,19 @@ afterEach(cleanup);
 
 jest.mock("../../../contexts/auth-context", () => ({
   useAuth: () => ({
-    signup: "0",
+    resetPassword: "0",
   }),
 }));
 
 describe("For Access Screen", () => {
   jest.setTimeout(30000);
 
-  jest.mock("../../../contexts/auth-context", () => ({
-    currentUser: () => ({
-      userId: "0",
-    }),
-  }));
-
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
         <Switch>
-          <SignUp />
+          <ResetPassword />
         </Switch>
       </BrowserRouter>,
       div
@@ -34,17 +28,17 @@ describe("For Access Screen", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("Should have `Creat an Account` text in sign-up page", async () => {
+  it("Should have Forgot password? in forgot password page", async () => {
     await act(async () => {
       const wrapped = render(
         <BrowserRouter>
           <Switch>
-            <SignUp />
+            <ResetPassword />
           </Switch>
         </BrowserRouter>
       );
 
-      const title = wrapped.getByText("Creat an Account");
+      const title = wrapped.getByText("Forgot password?");
       expect(title).not.toBeNull();
     });
   });
