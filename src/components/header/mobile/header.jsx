@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../../search-bar/search-bar";
+import { useAuth } from "../../../contexts/auth-context";
 import "./header.scss";
 
 function Header() {
+  const { currentUser, logout } = useAuth();
+  async function handleLogout() {
+    await logout();
+  }
+
   return (
     <header className="header">
       <nav className="menuItems" role="navigation">
@@ -19,27 +22,25 @@ function Header() {
               <li>Home</li>
             </a>
             <a href="#">
-              <li>About</li>
+              <li>Orders</li>
             </a>
             <a href="#">
-              <li>Info</li>
+              <li>Cart</li>
             </a>
-            <a href="#">
-              <li>Contact</li>
-            </a>
+            {currentUser ? (
+              <a onClick={handleLogout}>
+                <li>Log Out</li>
+              </a>
+            ) : (
+              <a href="/log-in">
+                <li>Log In</li>
+              </a>
+            )}
           </ul>
         </div>
         <span className="searchBar">
           <SearchBar />
         </span>
-        <Link to="/">
-          <div className="cart">
-            <span>
-              <FontAwesomeIcon icon={faShoppingBag} size="lg" />
-            </span>
-            <span className="header__basketCount">1</span>
-          </div>
-        </Link>
       </nav>
     </header>
   );

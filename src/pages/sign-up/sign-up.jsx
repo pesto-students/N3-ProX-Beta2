@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
-import TextInputBox from "../../components/TextInputBox/text-input-box";
+import TextInputBox from "../../components/text-input-box/text-input-box";
 import validator from "../../shared/utility/validator";
 import "./sign-up.scss";
 

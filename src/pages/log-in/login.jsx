@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import firebase from "firebase";
 import { useAuth } from "../../contexts/auth-context";
 import validator from "../../shared/utility/validator";
-import TextInputBox from "../../components/TextInputBox/text-input-box";
+import TextInputBox from "../../components/text-input-box/text-input-box";
 import "./login.scss";
 
 function LogIn() {

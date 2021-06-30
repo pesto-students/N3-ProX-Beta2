@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../../../components/search-bar/search-bar";
+import TextInputBox from "../../../components/text-input-box/text-input-box";
 import ReactDOM from "react-dom";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import { Switch, BrowserRouter } from "react-router-dom";
@@ -14,7 +14,7 @@ describe("For Access Screen", () => {
     ReactDOM.render(
       <BrowserRouter>
         <Switch>
-          <SearchBar />
+          <TextInputBox />
         </Switch>
       </BrowserRouter>,
       div
@@ -23,16 +23,11 @@ describe("For Access Screen", () => {
   });
 
   describe("Input value", () => {
-    it("updates on change", () => {
-      const setSearch = jest.fn(() => {});
-
-      const { queryByPlaceholderText } = render(<SearchBar setSearch={setSearch} />);
-
-      const searchInput = queryByPlaceholderText("Search for products");
-
-      fireEvent.change(searchInput, { target: { value: "test" } });
-
-      expect(searchInput.value).toBe("test");
+    it("Make sure inputted text is shorter than max length", function () {
+      const result = mount(<Input maxLength={10}></Input>);
+      let input = result.find("input");
+      TestUtils.Simulate.change(input, { target: { value: "abcdefghijk" } });
+      expect(result.state().value).to.equal("abcdefghij");
     });
   });
 });

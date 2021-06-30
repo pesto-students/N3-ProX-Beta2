@@ -33,19 +33,21 @@ function Header() {
               </Link>
             </nav>
 
-            <menu>
-              <nav className="menu_items">
-                <Link to="/">
-                  <span className="header__optionLine">MEN</span>
-                </Link>
-                <Link to="/">
-                  <span className="header__optionLine">WOMEN</span>
-                </Link>
-                <Link to="/">
-                  <span className="header__optionLine">KIDS</span>
-                </Link>
-              </nav>
-            </menu>
+            {!isTablet && (
+              <menu>
+                <nav className="menu_items">
+                  <Link to="/">
+                    <span className="header__optionLine">MEN</span>
+                  </Link>
+                  <Link to="/">
+                    <span className="header__optionLine">WOMEN</span>
+                  </Link>
+                  <Link to="/">
+                    <span className="header__optionLine">KIDS</span>
+                  </Link>
+                </nav>
+              </menu>
+            )}
           </section>
 
           <section className="header_section_wrapper">
@@ -58,17 +60,14 @@ function Header() {
                 <span>
                   <FontAwesomeIcon icon={faUserTie} size="lg" />
                 </span>
-                {}
                 {currentUser ? (
                   <span className="header__optionLine" onClick={handleLogout}>
                     Log Out
                   </span>
                 ) : (
-                  !isTablet && (
-                    <Link to={"/log-in"}>
-                      <span className="header__optionLine">Sign In</span>
-                    </Link>
-                  )
+                  <Link to={"/log-in"}>
+                    <span className="header__optionLine">Sign In</span>
+                  </Link>
                 )}
               </div>
               <Link to="/">
