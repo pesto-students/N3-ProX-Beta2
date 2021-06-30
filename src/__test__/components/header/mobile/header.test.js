@@ -6,6 +6,12 @@ import { Switch, BrowserRouter } from "react-router-dom";
 
 afterEach(cleanup);
 
+jest.mock("../../../../contexts/auth-context", () => ({
+  useAuth: () => ({
+    currentUser: "0",
+  }),
+}));
+
 describe("For Access Screen", () => {
   jest.setTimeout(30000);
 

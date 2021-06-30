@@ -23,11 +23,16 @@ describe("For Access Screen", () => {
   });
 
   describe("Input value", () => {
-    it("Make sure inputted text is shorter than max length", function () {
-      const result = mount(<Input maxLength={10}></Input>);
-      let input = result.find("input");
-      TestUtils.Simulate.change(input, { target: { value: "abcdefghijk" } });
-      expect(result.state().value).to.equal("abcdefghij");
+    it("updates on change", () => {
+      const setSearch = jest.fn(() => {});
+
+      const { queryByPlaceholderText } = render(<TextInputBox setSearch={setSearch} placeholder="abc" />);
+
+      const searchInput = queryByPlaceholderText("abc");
+
+      fireEvent.change(searchInput, { target: { value: "test" } });
+
+      expect(searchInput.value).toBe("test");
     });
   });
 });
