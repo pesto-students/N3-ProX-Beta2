@@ -18,8 +18,11 @@ function Header() {
           <span></span>
           <span></span>
           <ul id="menu">
-            <a href="#">
+            <a href="/">
               <li>Home</li>
+            </a>
+            <a href="/categories">
+              <li>Categories</li>
             </a>
             <a href="#">
               <li>Orders</li>

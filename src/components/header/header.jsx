@@ -8,14 +8,15 @@ import useIsDevice from "../../shared/utility/useIsDevice";
 import deviceType from "../../shared/enums/device-list";
 import MobileHeader from "./mobile/header";
 import { useAuth } from "../../contexts/auth-context";
+import { useStateValue } from "../../contexts/cart-state-provider";
 import "./header.scss";
 
 function Header() {
+  const [{ cart }] = useStateValue();
   const isMobile = useIsDevice(deviceType.MOBILE, deviceType.MOBILELARGE);
   const isTablet = useIsDevice(deviceType.TABLET);
   const { currentUser, logout } = useAuth();
   const history = useHistory();
-
   async function handleLogout() {
     await logout().then(() => history.push("/"));
   }
@@ -32,22 +33,6 @@ function Header() {
                 <img alt="" className="header__logo" src={logo} />
               </Link>
             </nav>
-
-            {!isTablet && (
-              <menu>
-                <nav className="menu_items">
-                  <Link to="/">
-                    <span className="header__optionLine">MEN</span>
-                  </Link>
-                  <Link to="/">
-                    <span className="header__optionLine">WOMEN</span>
-                  </Link>
-                  <Link to="/">
-                    <span className="header__optionLine">KIDS</span>
-                  </Link>
-                </nav>
-              </menu>
-            )}
           </section>
 
           <section className="header_section_wrapper">
@@ -70,12 +55,13 @@ function Header() {
                   </Link>
                 )}
               </div>
+
               <Link to="/">
                 <div className="header__option">
                   <span>
                     <FontAwesomeIcon icon={faShoppingBag} size="lg" />
                   </span>
-                  <span className="header__basketCount">1</span>
+                  {!!cart?.length && <span className="header__basketCount">{cart?.length}</span>}
                   {!isTablet && <span className="header__optionLine">Cart</span>}
                 </div>
               </Link>
