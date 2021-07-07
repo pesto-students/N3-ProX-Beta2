@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../../../../components/header/mobile/header";
+import ResetPassword from "../../../pages/reset-password/reset-password";
 import ReactDOM from "react-dom";
 import { render, act, cleanup } from "@testing-library/react";
 import { Switch, BrowserRouter } from "react-router-dom";
 
 afterEach(cleanup);
 
-jest.mock("../../../../contexts/auth-context", () => ({
+jest.mock("../../../contexts/auth-context", () => ({
   useAuth: () => ({
-    currentUser: "0",
+    resetPassword: "0",
   }),
 }));
 
@@ -20,7 +20,7 @@ describe("For Access Screen", () => {
     ReactDOM.render(
       <BrowserRouter>
         <Switch>
-          <Header />
+          <ResetPassword />
         </Switch>
       </BrowserRouter>,
       div
@@ -28,17 +28,17 @@ describe("For Access Screen", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("Should have `Home` text in header", async () => {
+  it("Should have Forgot password? in forgot password page", async () => {
     await act(async () => {
       const wrapped = render(
         <BrowserRouter>
           <Switch>
-            <Header />
+            <ResetPassword />
           </Switch>
         </BrowserRouter>
       );
 
-      const title = wrapped.getByText("Home");
+      const title = wrapped.getByText("Forgot password?");
       expect(title).not.toBeNull();
     });
   });

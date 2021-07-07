@@ -6,11 +6,23 @@ import { Switch, BrowserRouter } from "react-router-dom";
 
 afterEach(cleanup);
 
+jest.mock("../../../contexts/auth-context", () => ({
+  useAuth: () => ({
+    signup: "0",
+  }),
+}));
+
 describe("For Access Screen", () => {
   jest.setTimeout(30000);
 
+  jest.mock("../../../contexts/auth-context", () => ({
+    currentUser: () => ({
+      userId: "0",
+    }),
+  }));
+
   it("renders without crashing", () => {
-    const div = document.createElement("dic");
+    const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
         <Switch>

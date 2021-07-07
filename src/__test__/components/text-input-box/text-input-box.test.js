@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../../../components/search-bar/search-bar";
+import TextInputBox from "../../../components/text-input-box/text-input-box";
 import ReactDOM from "react-dom";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import { Switch, BrowserRouter } from "react-router-dom";
@@ -14,7 +14,7 @@ describe("For Access Screen", () => {
     ReactDOM.render(
       <BrowserRouter>
         <Switch>
-          <SearchBar />
+          <TextInputBox />
         </Switch>
       </BrowserRouter>,
       div
@@ -26,9 +26,9 @@ describe("For Access Screen", () => {
     it("updates on change", () => {
       const setSearch = jest.fn(() => {});
 
-      const { queryByPlaceholderText } = render(<SearchBar setSearch={setSearch} />);
+      const { queryByPlaceholderText } = render(<TextInputBox setSearch={setSearch} placeholder="abc" />);
 
-      const searchInput = queryByPlaceholderText("Search for products");
+      const searchInput = queryByPlaceholderText("abc");
 
       fireEvent.change(searchInput, { target: { value: "test" } });
 

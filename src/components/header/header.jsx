@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/logo.png";
@@ -7,11 +7,19 @@ import SearchBar from "../search-bar/search-bar";
 import useIsDevice from "../../shared/utility/useIsDevice";
 import deviceType from "../../shared/enums/device-list";
 import MobileHeader from "./mobile/header";
+import { useAuth } from "../../contexts/auth-context";
 import "./header.scss";
 
 function Header() {
   const isMobile = useIsDevice(deviceType.MOBILE, deviceType.MOBILELARGE);
   const isTablet = useIsDevice(deviceType.TABLET);
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
+
+  async function handleLogout() {
+    await logout().then(() => history.push("/"));
+  }
+
   return (
     <header className="header">
       {isMobile ? (
@@ -25,19 +33,21 @@ function Header() {
               </Link>
             </nav>
 
-            <menu>
-              <nav className="menu_items">
-                <Link to="/">
-                  <span className="header__optionLine">MEN</span>
-                </Link>
-                <Link to="/">
-                  <span className="header__optionLine">WOMEN</span>
-                </Link>
-                <Link to="/">
-                  <span className="header__optionLine">KIDS</span>
-                </Link>
-              </nav>
-            </menu>
+            {!isTablet && (
+              <menu>
+                <nav className="menu_items">
+                  <Link to="/">
+                    <span className="header__optionLine">MEN</span>
+                  </Link>
+                  <Link to="/">
+                    <span className="header__optionLine">WOMEN</span>
+                  </Link>
+                  <Link to="/">
+                    <span className="header__optionLine">KIDS</span>
+                  </Link>
+                </nav>
+              </menu>
+            )}
           </section>
 
           <section className="header_section_wrapper">
@@ -46,14 +56,20 @@ function Header() {
             </div>
 
             <nav className="header__nav">
-              <Link to={"/log-in"}>
-                <div className="header__option">
-                  <span>
-                    <FontAwesomeIcon icon={faUserTie} size="lg" />
+              <div className="header__option">
+                <span>
+                  <FontAwesomeIcon icon={faUserTie} size="lg" />
+                </span>
+                {currentUser ? (
+                  <span className="header__optionLine" onClick={handleLogout}>
+                    Log Out
                   </span>
-                  {!isTablet && <span className="header__optionLine">Sign-In</span>}
-                </div>
-              </Link>
+                ) : (
+                  <Link to={"/log-in"}>
+                    <span className="header__optionLine">Sign In</span>
+                  </Link>
+                )}
+              </div>
               <Link to="/">
                 <div className="header__option">
                   <span>

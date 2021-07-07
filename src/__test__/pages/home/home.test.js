@@ -9,7 +9,7 @@ describe("For Access Screen", () => {
   jest.setTimeout(30000);
 
   it("renders without crashing", () => {
-    const div = document.createElement("dic");
+    const div = document.createElement("div");
     ReactDOM.render(<Home />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
