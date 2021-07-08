@@ -20,7 +20,6 @@ function Product({ product, isInCart }) {
     });
   };
 
-  //   console.log(isInCart());
   return (
     <div className="product-card">
       <Link to={`/product/${product.itemID}`}>
