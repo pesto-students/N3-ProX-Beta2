@@ -10,6 +10,10 @@ jest.mock("../../../contexts/auth-context", () => ({
   }),
 }));
 
+jest.mock("../../../contexts/cart-state-provider", () => ({
+  useStateValue: () => [{ cart: [] }],
+}));
+
 afterEach(cleanup);
 
 describe("For Access Screen", () => {

@@ -90,6 +90,11 @@ a {
   box-shadow: -10px -10px 20px rgb(255, 255, 255), 10px 10px 20px rgba(0, 0, 0, 0.4);
   margin-bottom: 1rem;
 }
+.card-button:disabled {
+  color: black;
+  background: gray;
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.4), inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
 
 .card-button:focus,
 .card-button:hover {
@@ -132,5 +137,3 @@ a {
 .card-input-container.password::after {
   content: "\f023";
 }
-
-
