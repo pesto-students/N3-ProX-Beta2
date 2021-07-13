@@ -24,10 +24,12 @@ function Header() {
             <a href="/categories">
               <li>Categories</li>
             </a>
-            <a href="#">
-              <li>Orders</li>
-            </a>
-            <a href="#">
+            {currentUser && (
+              <a href="/orders">
+                <li>Orders</li>
+              </a>
+            )}
+            <a href="/cart">
               <li>Cart</li>
             </a>
             {currentUser ? (

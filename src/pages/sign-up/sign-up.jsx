@@ -18,7 +18,6 @@ function SignUp() {
   const [passwordConfirmationError, setPasswordConfirmationError] = useState(false);
 
   const validate = (email, password, passwordConfirm) => {
-    console.log(passwordConfirm);
     setEmailError(validator.validateEmail(email));
     setPasswordError(validator.validatePassword(password));
     setPasswordConfirmationError(password !== passwordConfirm);

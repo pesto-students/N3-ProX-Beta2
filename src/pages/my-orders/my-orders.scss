@@ -1,0 +1,39 @@
+.order-item {
+  display: flex;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.order-thumbnail {
+  width: 18%;
+}
+
+.col.left {
+  display: flex;
+  padding: 30px;
+}
+
+.order-button {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin-top: 15px;
+  padding: unset;
+  box-shadow: unset;
+}
+
+.detail {
+  width: 65%;
+  display: block;
+}
+
+.title-no-order {
+  font-weight: bold;
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}

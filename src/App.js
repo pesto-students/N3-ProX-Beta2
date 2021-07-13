@@ -10,6 +10,11 @@ import ProductList from "./pages/product-list/product-list";
 import { AuthProvider } from "./contexts/auth-context";
 import ScrollToTop from "./shared/utility/scroll-to-top";
 import ProductDetails from "./pages/product-details/product-details";
+import OrderSuccess from "./pages/order-success/order-success";
+import MyOrders from "./pages/my-orders/my-orders";
+import OrderStatus from "./pages/order-status/order-status";
+import Cart from "./pages/cart/cart";
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +28,10 @@ function App() {
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/products" component={ProductList} />
           <PrivateRoute exact path="/product/:id" component={ProductDetails} />
+          <PrivateRoute exact path="/cart" component={Cart} />
+          <PrivateRoute exact path="/success" component={OrderSuccess} />
+          <PrivateRoute exact path="/orders" component={MyOrders} />
+          <PrivateRoute exact path="/orders/:id" component={OrderStatus} />
         </AuthProvider>
       </Switch>
     </BrowserRouter>
