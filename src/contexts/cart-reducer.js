@@ -1,12 +1,11 @@
+/* eslint-disable no-case-declarations */
 // Selector
-export const getBasketTotal = (cart) => cart?.reduce((amount, item) => item.price + amount, 0);
 
 const savedCartItem = localStorage.getItem("cart");
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      // eslint-disable-next-line no-case-declarations
       const item = [...state.cart, action.item];
       localStorage.setItem("cart", JSON.stringify(item));
       return {
@@ -21,10 +20,19 @@ const reducer = (state, action) => {
         cart: [],
       };
 
+    case "UPDATE_QUANTITY":
+      const updateIndex = state.cart.findIndex((cartItem) => cartItem.id === action.id);
+      if (state.cart[updateIndex]) {
+        state.cart[updateIndex].quantity = action.quantity;
+      }
+      localStorage.setItem("cart", JSON.stringify([...state.cart]));
+      return {
+        ...state,
+        cart: [...state.cart],
+      };
+
     case "REMOVE_FROM_CART":
-      // eslint-disable-next-line no-case-declarations
       const index = state.cart.findIndex((cartItem) => cartItem.id === action.id);
-      // eslint-disable-next-line no-case-declarations
       let newBasket = [...state.cart];
 
       if (index >= 0) {
@@ -38,10 +46,10 @@ const reducer = (state, action) => {
         cart: newBasket,
       };
 
-    case "SET_USER":
+    case "ADD_ADDRESS":
       return {
         ...state,
-        user: action.user,
+        address: action.address,
       };
 
     default:

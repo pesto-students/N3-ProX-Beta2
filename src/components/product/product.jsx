@@ -16,6 +16,8 @@ function Product({ product, isInCart }) {
         title: product.itemName,
         image: product.image,
         price: product.itemPrice,
+        description: product.description,
+        quantity: 1,
       },
     });
   };
@@ -34,9 +36,6 @@ function Product({ product, isInCart }) {
         <div className="button-wrapper">
           <button className="card-button" disabled={isInCart} onClick={addToCart}>
             {isInCart ? "Added to cart" : "Add to cart"}
-          </button>
-          <button className="card-button" onClick={() => true}>
-            Buy Now
           </button>
         </div>
       </div>

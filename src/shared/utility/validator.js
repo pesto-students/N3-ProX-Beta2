@@ -10,9 +10,15 @@ const validatePassword = (password) => {
   return !re.test(password);
 };
 
+const validatePhoneNumber = (number) => {
+  const re = /^\d{10}$/;
+  return !re.test(number);
+};
+
 const validator = {
   validateEmail,
   validatePassword,
+  validatePhoneNumber,
 };
 
 export default validator;
