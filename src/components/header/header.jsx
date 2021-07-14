@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag, faUserTie, faTruckMoving } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingBag, faUserTie, faTruckMoving, faHeart } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/logo.png";
 import SearchBar from "../search-bar/search-bar";
 import useIsDevice from "../../shared/utility/useIsDevice";
@@ -47,24 +47,39 @@ function Header() {
                     <FontAwesomeIcon icon={faTruckMoving} size="lg" />
                   </span>
 
-                  <span className="header__optionLine" onClick={() => history.push("/orders")}>
-                    My Orders
-                  </span>
+                  {!isTablet && (
+                    <span className="header__optionLine" onClick={() => history.push("/orders")}>
+                      My Orders
+                    </span>
+                  )}
                 </div>
+              )}
+
+              {currentUser && (
+                <Link to="/wish">
+                  <div className="header__option">
+                    <span>
+                      <FontAwesomeIcon icon={faHeart} size="lg" />
+                    </span>
+                    {!isTablet && <span className="header__optionLine">WishList</span>}
+                  </div>
+                </Link>
               )}
 
               <div className="header__option">
                 <span>
                   <FontAwesomeIcon icon={faUserTie} size="lg" />
                 </span>
-                {currentUser ? (
+                {currentUser && !isTablet ? (
                   <span className="header__optionLine" onClick={handleLogout}>
                     Log Out
                   </span>
                 ) : (
-                  <Link to={"/log-in"}>
-                    <span className="header__optionLine">Sign In</span>
-                  </Link>
+                  !isTablet && (
+                    <Link to={"/log-in"}>
+                      <span className="header__optionLine">Sign In</span>
+                    </Link>
+                  )
                 )}
               </div>
 

@@ -29,6 +29,11 @@ function Header() {
                 <li>Orders</li>
               </a>
             )}
+            {currentUser && (
+              <a href="/wish">
+                <li>Wish List</li>
+              </a>
+            )}
             <a href="/cart">
               <li>Cart</li>
             </a>

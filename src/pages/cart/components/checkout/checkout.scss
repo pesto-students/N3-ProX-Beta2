@@ -62,7 +62,7 @@
   max-width: 786px;
   padding: 2em;
   border-radius: 20px;
-  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 300vmax rgba(0, 0, 0, 0.5);
 }
 
 .name {
@@ -90,6 +90,9 @@
   padding-top: 30px;
   width: 185px;
   justify-content: space-between;
+  @media only screen and (max-width: 600px) {
+    display: unset;
+  }
 }
 
 .a {

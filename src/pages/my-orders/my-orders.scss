@@ -8,6 +8,9 @@
 
 .order-thumbnail {
   width: 18%;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .col.left {
@@ -24,6 +27,9 @@
   margin-top: 15px;
   padding: unset;
   box-shadow: unset;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .detail {

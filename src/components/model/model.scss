@@ -62,7 +62,7 @@
   max-width: 786px;
   padding: 2em;
   border-radius: 20px;
-  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 300vmax rgba(0, 0, 0, 0.5);
 }
 
 .name {
@@ -83,6 +83,12 @@
   grid-template-columns: 20% 20%;
   grid-column-gap: 20px;
   justify-content: right;
+
+  @media only screen and (max-width: 600px) {
+    justify-content: center;
+    margin-top: inherit;
+    grid-template-columns: 30% 30%;
+  }
 }
 
 .card-subtitle {

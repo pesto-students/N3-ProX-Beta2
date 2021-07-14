@@ -15,7 +15,6 @@ function OrderStatus(props) {
 
   const toDate = (date) => new Date(date.seconds * 1000).toDateString();
 
-  console.log(order);
   return (
     <>
       <h1 className="title">Order ID: {id}</h1>

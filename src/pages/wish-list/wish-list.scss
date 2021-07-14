@@ -1,4 +1,4 @@
-.products-items {
+.my-wish-list {
   margin-bottom: 35px;
   display: grid;
   justify-content: center;
@@ -17,7 +17,15 @@
   @media only screen and (min-width: 1440px) {
     grid-template-columns: auto auto auto auto;
   }
-
+  grid-template-columns: auto auto auto auto;
   grid-gap: 20px;
   padding: 50px;
+}
+
+.no-item {
+  display: grid;
+  place-items: center;
+  font-size: large;
+  min-height: 70vh;
+  font-weight: bolder;
 }
