@@ -13,7 +13,7 @@ function ProductList(props) {
   const [{ cart }] = useStateValue();
 
   const { currentUser } = useAuth();
-  const { isWishListed, loading: loadingProduct } = useWishListByUser(currentUser.uid);
+  const { isWishListed, loading: loadingProduct } = useWishListByUser(currentUser?.uid);
 
   if (loading || loadingProduct) {
     return <Loader />;
