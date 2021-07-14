@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import app from "../shared/utility/firebase";
 
-const useRecommendProducts = () => {
+const useRecommendProducts = (recommended) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [products, setProducts] = useState();
 
   useEffect(async () => {
-    const recommended = localStorage.getItem("recommended");
     if (recommended) {
       setLoading(true);
       const data = [];
@@ -28,6 +27,7 @@ const useRecommendProducts = () => {
       setLoading(false);
       setProducts(data);
     }
+    setLoading(false);
   }, []);
 
   // Shuffle array

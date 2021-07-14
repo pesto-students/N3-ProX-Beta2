@@ -6,7 +6,8 @@ import deviceType from "../../shared/enums/device-list";
 import "./recommended.scss";
 
 function Recommended() {
-  const { loading, selected } = useRecommendProducts();
+  const recommended = localStorage.getItem("recommended");
+  const { loading, selected } = useRecommendProducts(recommended);
   const isLaptop = useIsDevice(deviceType.LAPTOP);
 
   if (loading) {
@@ -19,32 +20,36 @@ function Recommended() {
 
   return (
     <>
-      <div className="category-wrapper">
-        <span className="category-title">RECOMMENDED FOR YOU</span>
-        <Link to="/categories">SEE ALL</Link>
-        <div className={"products-items"}>
-          {selected?.map((product, index) => {
-            return (
-              <div className="product-card" key={index}>
-                <Link to={`/product/${product.itemID}`}>
-                  <img src={product.image} alt="" />
-                </Link>
-                <div className="content">
-                  <h3>
-                    <Link to={`/product/${product.itemID}`}>{product.title}</Link>
-                  </h3>
-                  <div className="heart-wrapper">
-                    <div className="price-name-wrapper">
-                      <span>₹{product.itemPrice}</span>
-                      <p>{product.itemName}</p>
+      {recommended ? (
+        <div className="category-wrapper">
+          <span className="category-title">RECOMMENDED FOR YOU</span>
+          <Link to="/categories">SEE ALL</Link>
+          <div className={"products-items"}>
+            {selected?.map((product, index) => {
+              return (
+                <div className="product-card" key={index}>
+                  <Link to={`/product/${product.itemID}`}>
+                    <img src={product.image} alt="" />
+                  </Link>
+                  <div className="content">
+                    <h3>
+                      <Link to={`/product/${product.itemID}`}>{product.title}</Link>
+                    </h3>
+                    <div className="heart-wrapper">
+                      <div className="price-name-wrapper">
+                        <span>₹{product.itemPrice}</span>
+                        <p>{product.itemName}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
