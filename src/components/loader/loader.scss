@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
   margin-left: 50%;
+  @media only screen and (max-width: 600px) {
+    margin-left: 35%;
+  }
 }
 
 .loader {
@@ -28,21 +31,21 @@
 }
 
 .loader-1 {
-  background-color: rgb(255, 0, 168);;
+  background-color: rgb(255, 0, 168);
   animation-delay: 0.2s;
 }
 
 .loader-2 {
-  background-color: rgb(255, 0, 168);;
+  background-color: rgb(255, 0, 168);
   animation-delay: 0.4s;
 }
 
 .loader-3 {
-  background-color: rgb(255, 0, 168);;
+  background-color: rgb(255, 0, 168);
   animation-delay: 0.6s;
 }
 
 .loader-4 {
-  background-color: rgb(255, 0, 168);;
+  background-color: rgb(255, 0, 168);
   animation-delay: 0.8s;
 }

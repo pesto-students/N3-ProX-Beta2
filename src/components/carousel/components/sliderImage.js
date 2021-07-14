@@ -4,17 +4,17 @@ import Second from "../../../assets/slider-3.jpg";
 
 export default [
   {
-    title: "Mid Year Sale!!",
-    description: "Extra 400₹ off + Free shipping",
+    title: "Mid Year SALE!!",
+    description: "Extra 400₹ OFF + FREE shipping",
     urls: First,
   },
   {
-    title: "Last day of sale",
-    description: "40-70% off",
+    title: "Last day of SALE",
+    description: "40-70% OFF",
     urls: Second,
   },
   {
-    title: "Buy 1, Get 3 Free",
+    title: "Buy 1! Get 3 FREE!!!",
     description: "& more deals",
     urls: Third,
   },

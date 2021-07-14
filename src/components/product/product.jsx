@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../contexts/cart-state-provider";
+import Heart from "../heart-Icon/heart";
 import "./product.scss";
 
-function Product({ product, isInCart }) {
+function Product({ product, isInCart, filled = false, showWishList = true }) {
   const [, dispatch] = useStateValue();
 
   const addToCart = (e) => {
@@ -31,8 +32,13 @@ function Product({ product, isInCart }) {
         <h3>
           <Link to={`/product/${product.itemID}`}>{product.title}</Link>
         </h3>
-        <span>₹{product.itemPrice}</span>
-        <p>{product.itemName}</p>
+        <div className="heart-wrapper">
+          <div className="price-name-wrapper">
+            <span>₹{product.itemPrice}</span>
+            <p>{product.itemName}</p>
+          </div>
+          {showWishList && <Heart product={product} filled={filled} />}
+        </div>
         <div className="button-wrapper">
           <button className="card-button" disabled={isInCart} onClick={addToCart}>
             {isInCart ? "Added to cart" : "Add to cart"}

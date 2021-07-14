@@ -32,6 +32,9 @@ input {
   margin: 0 auto;
   overflow: auto;
   margin-bottom: 50px;
+  @media only screen and (max-width: 600px) {
+    width: unset;
+  }
 }
 
 /* --- PRODUCT LIST --- */
@@ -58,6 +61,9 @@ input {
 
 .col.left {
   width: 70%;
+  @media only screen and (max-width: 600px) {
+    width: unset;
+  }
 }
 
 .col.right {
@@ -65,6 +71,9 @@ input {
   position: absolute;
   right: 0;
   top: calc(50% - 30px);
+  @media only screen and (max-width: 600px) {
+    width: unset;
+  }
 }
 
 .detail {
@@ -142,6 +151,9 @@ input {
 .summary {
   font-size: 1.2rem;
   text-align: right;
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+  }
 }
 
 .summary ul li {
@@ -228,4 +240,8 @@ input {
   display: flex;
   width: 24%;
   float: right;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
 }

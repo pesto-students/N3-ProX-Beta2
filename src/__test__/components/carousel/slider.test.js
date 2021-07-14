@@ -32,7 +32,7 @@ describe("For Access Screen", () => {
         </BrowserRouter>
       );
 
-      const title = wrapped.getByText("Mid Year Sale!!");
+      const title = wrapped.getByText("Mid Year SALE!!");
       expect(title).not.toBeNull();
     });
   });

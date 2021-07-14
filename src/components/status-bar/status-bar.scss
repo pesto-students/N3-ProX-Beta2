@@ -3,6 +3,9 @@ ol.progtrckr {
   padding: 0;
   list-style-type: none;
   text-align-last: center;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 ol.progtrckr li {
