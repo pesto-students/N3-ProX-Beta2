@@ -12,6 +12,8 @@ function ProductDetails(props) {
     return <Loader />;
   }
 
+  localStorage.setItem("recommended", JSON.stringify(product?.itemCategory));
+
   const isInCart = () => {
     let disabled = false;
     cart.map((item) => {

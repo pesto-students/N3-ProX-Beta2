@@ -38,6 +38,7 @@ function ProductList(props) {
       <h1 className="title">{category}</h1>
       <div className={"products-items"}>
         {products.map((product, index) => {
+          localStorage.setItem("recommended", JSON.stringify(product?.itemCategory));
           const filled = isWishListed(product);
           return <Product product={product} key={index} isInCart={isInCart(product)} filled={filled} />;
         })}

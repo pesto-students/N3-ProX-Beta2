@@ -1,4 +1,5 @@
 .category-items {
+  margin-top: 35px;
   margin-bottom: 50px;
   display: grid;
   justify-content: center;
@@ -57,4 +58,8 @@
 
 a:hover {
   color: rgb(255, 0, 168);
+}
+
+.bottom-img{
+    width: 100%;
 }

@@ -1,19 +1,42 @@
 import React from "react";
-import Category from "../../components/category/category";
-import men from "../../assets/men.jpg";
-import women from "../../assets/women.jpg";
-import kids from "../../assets/kids.jpg";
+import useProducts from "../../api/products-hook";
+import { useStateValue } from "../../contexts/cart-state-provider";
+import Loader from "../../components/loader/loader";
+import useWishListByUser from "../../api/wish-list-by-user-hook";
+import { useAuth } from "../../contexts/auth-context";
+import Product from "../../components/product/product";
 import "./categories.scss";
 
 function Categories() {
+  const { loading, products } = useProducts("", true);
+  const [{ cart }] = useStateValue();
+  const { currentUser } = useAuth();
+  const { isWishListed, loading: loadingProduct } = useWishListByUser(currentUser?.uid);
+
+  const isInCart = (product) => {
+    let disabled = false;
+    cart.map((item) => {
+      if (item.id === product.itemID) {
+        disabled = true;
+      }
+    });
+    return disabled;
+  };
+
+  if (loading || loadingProduct) {
+    return <Loader />;
+  }
+
   return (
     <section>
-      <h1 className="title">CATEGORIES</h1>
-      <span className="category-items">
-        <Category imageSrc={men} name="men" />
-        <Category imageSrc={women} name="women" />
-        <Category imageSrc={kids} name="kids" />
-      </span>
+      <h1 className="title">EXPLORE</h1>
+      <span className="category-items"></span>
+      <div className={"products-items"}>
+        {products.map((product, index) => {
+          const filled = isWishListed(product);
+          return <Product product={product} key={index} isInCart={isInCart(product)} filled={filled} />;
+        })}
+      </div>
     </section>
   );
 }
