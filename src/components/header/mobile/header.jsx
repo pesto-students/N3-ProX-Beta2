@@ -22,7 +22,7 @@ function Header() {
               <li>Home</li>
             </a>
             <a href="/categories">
-              <li>Categories</li>
+              <li>Products</li>
             </a>
             {currentUser && (
               <a href="/orders">
