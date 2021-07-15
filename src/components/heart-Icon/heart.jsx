@@ -7,7 +7,7 @@ import { useAuth } from "../../contexts/auth-context";
 import { useWish } from "../../contexts/wish-list-context";
 import debounce from "../../shared/utility/debounce";
 
-function Heart({ product, filled }) {
+function Heart({ product, filled, size = "lg" }) {
   const { currentUser } = useAuth();
   const [IsWish, setIsWish] = useState(filled);
 
@@ -30,7 +30,7 @@ function Heart({ product, filled }) {
           optimizedHandler();
         }}
         color="#ff00a8"
-        size="lg"
+        size={size}
       />
     </div>
   );

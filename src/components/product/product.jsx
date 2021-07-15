@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../contexts/cart-state-provider";
-import { useAuth } from "../../contexts/auth-context";
 import Heart from "../heart-Icon/heart";
+import { useAuth } from "../../contexts/auth-context";
+import Star from "../star-Icon/star";
 import "./product.scss";
 
 function Product({ product, isInCart, filled = false, showWishList = true }) {
@@ -21,6 +22,7 @@ function Product({ product, isInCart, filled = false, showWishList = true }) {
         price: product.itemPrice,
         description: product.description,
         quantity: 1,
+        rating: product.rating,
       },
     });
   };
@@ -40,6 +42,9 @@ function Product({ product, isInCart, filled = false, showWishList = true }) {
             <p>{product.itemName}</p>
           </div>
           {showWishList && currentUser && <Heart product={product} filled={filled} />}
+        </div>
+        <div className="star-wrapper">
+          <Star Rating={product.rating} />
         </div>
         <div className="button-wrapper">
           <button className="card-button" disabled={isInCart} onClick={addToCart}>
