@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Model from "../../../../components/model/model";
 import { useHistory } from "react-router-dom";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { useAuth } from "../../../../contexts/auth-context";
 import validator from "../../../../shared/utility/validator";
 import TextInputBox from "../../../../components/text-input-box/text-input-box";
