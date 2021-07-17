@@ -35,7 +35,7 @@ const useRecommendProducts = (recommended) => {
 
   // Get sub-array of first n elements after shuffled
   let selected = shuffled?.slice(0, 4);
-  console.log(products);
+
   return { loading, error, selected };
 };
 

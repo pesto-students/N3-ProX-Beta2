@@ -6,9 +6,9 @@ function OrderItems({ order }) {
 
   return (
     <>
-      {order?.data().cart.map((product) => {
+      {order?.data().cart.map((product, index) => {
         return (
-          <>
+          <div key={index}>
             <li className="order-item">
               <div className="col left">
                 <div className="order-thumbnail">
@@ -28,7 +28,7 @@ function OrderItems({ order }) {
                 </div>
               </div>
             </li>
-          </>
+          </div>
         );
       })}
     </>

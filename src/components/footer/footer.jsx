@@ -39,16 +39,16 @@ function Footer() {
       <div className="column">
         <a className="footer_title">LATEST NEWS</a>
         <a href="" title="Lorem ipsum dolor sit amet">
-          <img src="https://source.unsplash.com/50x50/?green,trees" />
+          <img alt="img" src="https://source.unsplash.com/50x50/?green,trees" />
         </a>
         <a href="" title="Lorem ipsum dolor sit amet">
-          <img src="https://source.unsplash.com/50x50/?green,tree" />
+          <img alt="img" src="https://source.unsplash.com/50x50/?green,tree" />
         </a>
         <a href="" title="Lorem ipsum dolor sit amet">
-          <img src="https://source.unsplash.com/50x50/?green,plant" />
+          <img alt="img" src="https://source.unsplash.com/50x50/?green,plant" />
         </a>
         <a href="" title="Lorem ipsum dolor sit amet">
-          <img src="https://source.unsplash.com/50x50/?green,forest" />
+          <img alt="img" src="https://source.unsplash.com/50x50/?green,forest" />
         </a>
       </div>
       <div className="column">
