@@ -16,7 +16,6 @@ import MyOrders from "./pages/my-orders/my-orders";
 import OrderStatus from "./pages/order-status/order-status";
 import WishList from "./pages/wish-list/wish-list";
 import Cart from "./pages/cart/cart";
-import GenericNotFound from "./components/generic-not-found/generic-not-found";
 
 function App() {
   return (
@@ -37,7 +36,6 @@ function App() {
             <PrivateRoute exact path="/orders" component={MyOrders} />
             <PrivateRoute exact path="/orders/:id" component={OrderStatus} />
             <PrivateRoute exact path="/wish" component={WishList} />
-            <Route component={GenericNotFound} />
           </WishProvider>
         </AuthProvider>
       </Switch>
