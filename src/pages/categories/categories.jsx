@@ -32,7 +32,7 @@ function Categories() {
       <h1 className="title">EXPLORE</h1>
       <span className="category-items"></span>
       <div className={"products-items"}>
-        {products.map((product, index) => {
+        {products?.map((product, index) => {
           const filled = isWishListed(product);
           return <Product product={product} key={index} isInCart={isInCart(product)} filled={filled} />;
         })}
